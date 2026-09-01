@@ -1,67 +1,101 @@
-/* =========================================================
-   Pedro Cerqueira — portefólio
-   Sem dependências. Três comportamentos: tema, revelação e ano.
-   ========================================================= */
+/* ==========================================================================
+   Pedro Cerqueira Cavalcante — portfólio
+   Três comportamentos, sem dependências: tema, menu e revelação.
+   ========================================================================== */
 (function () {
   'use strict';
 
-  /* ---------- tema claro / escuro ---------- */
-  var STORAGE_KEY = 'pc-theme';
   var root = document.documentElement;
 
-  function stored() {
-    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+  /* ---------------------------------------------------------------
+     Tema claro / escuro
+     Sem escolha guardada, manda a preferência do sistema.
+     --------------------------------------------------------------- */
+  var KEY = 'pc-theme';
+
+  function readStored() {
+    try { return localStorage.getItem(KEY); } catch (e) { return null; }
   }
 
-  function save(value) {
-    try { localStorage.setItem(STORAGE_KEY, value); } catch (e) { /* modo privado */ }
-  }
+  var saved = readStored();
+  if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
 
-  // Aplica a escolha guardada (se houver). Sem escolha, manda o tema do sistema.
-  var saved = stored();
-  if (saved === 'dark' || saved === 'light') {
-    root.setAttribute('data-theme', saved);
-  }
-
-  function currentIsDark() {
+  function isDark() {
     var attr = root.getAttribute('data-theme');
     if (attr === 'dark') return true;
     if (attr === 'light') return false;
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   }
 
-  var toggle = document.getElementById('theme-toggle');
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      var next = currentIsDark() ? 'light' : 'dark';
+  var themeBtn = document.getElementById('theme-btn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
-      save(next);
-      toggle.setAttribute('aria-label', next === 'dark'
-        ? 'Mudar para tema claro'
-        : 'Mudar para tema escuro');
+      try { localStorage.setItem(KEY, next); } catch (e) { /* janela privada */ }
+      themeBtn.setAttribute('aria-label',
+        next === 'dark' ? 'Mudar para tema claro' : 'Mudar para tema escuro');
     });
   }
 
-  /* ---------- revelação ao entrar no ecrã ---------- */
-  var alvos = document.querySelectorAll('.card, .project, .steps li, .stack-group, .section-head');
+  /* ---------------------------------------------------------------
+     Menu no telemóvel
+     --------------------------------------------------------------- */
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
 
-  var reduzMovimento = window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (burger && nav) {
+    var setOpen = function (open) {
+      nav.setAttribute('data-open', open ? 'true' : 'false');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    };
 
-  if (!('IntersectionObserver' in window) || reduzMovimento) {
-    // Sem suporte ou com movimento reduzido: mostra tudo, sem animação.
-    Array.prototype.forEach.call(alvos, function (el) { el.classList.add('is-visible'); });
-  } else {
-    Array.prototype.forEach.call(alvos, function (el) { el.classList.add('reveal'); });
+    burger.addEventListener('click', function () {
+      setOpen(nav.getAttribute('data-open') !== 'true');
+    });
 
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    // Fecha ao escolher um destino.
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') setOpen(false);
+    });
 
-    Array.prototype.forEach.call(alvos, function (el) { observer.observe(el); });
+    // Fecha com Escape, e devolve o foco ao botão.
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.getAttribute('data-open') === 'true') {
+        setOpen(false);
+        burger.focus();
+      }
+    });
+
+    // Se a janela crescer para além do ponto de rutura, o menu deixa de fazer sentido.
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 864 && nav.getAttribute('data-open') === 'true') setOpen(false);
+    });
   }
+
+  /* ---------------------------------------------------------------
+     Revelação discreta ao entrar no ecrã.
+     Só se aplica quando há suporte e o utilizador não pediu menos movimento;
+     caso contrário o conteúdo fica simplesmente visível.
+     --------------------------------------------------------------- */
+  var targets = document.querySelectorAll('.reveal');
+  if (!targets.length) return;
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!('IntersectionObserver' in window) || reduced) {
+    Array.prototype.forEach.call(targets, function (el) { el.classList.add('shown'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('shown');
+      io.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+
+  Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
 })();

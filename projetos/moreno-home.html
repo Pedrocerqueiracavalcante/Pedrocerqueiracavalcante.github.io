@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moreno Home — Pedro Cerqueira Cavalcante</title>
+<meta name="description" content="Sistema web para atendimento digital de hóspedes em alojamento local: entrada por QR Code, pedidos gravados em base de dados e painel de gestão em tempo real. Cloudflare Pages, D1 e Server-Sent Events.">
+<link rel="canonical" href="https://pedrocerqueiracavalcante.github.io/projetos/moreno-home.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Moreno Home — atendimento digital de hóspedes">
+<meta property="og:description" content="Entrada por QR Code, pedidos gravados em base de dados e painel de gestão em tempo real.">
+<meta property="og:url" content="https://pedrocerqueiracavalcante.github.io/projetos/moreno-home.html">
+<meta property="og:image" content="https://pedrocerqueiracavalcante.github.io/assets/img/moreno.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#C42038">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23C42038'/><text x='32' y='44' font-size='34' font-family='ui-monospace,monospace' font-weight='600' fill='%23fff' text-anchor='middle'>P</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css?v=5">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Moreno Home",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://moreno-home.pages.dev",
+  "description": "Sistema web para atendimento digital de hóspedes em alojamento local, com painel de gestão para a equipa.",
+  "author": { "@type": "Person", "name": "Pedro Cerqueira Cavalcante" }
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#doc">Ir para a documentação</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="../index.html">
+      <span class="logo-mark" aria-hidden="true">PC</span>
+      <span>Pedro Cerqueira</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a href="../index.html">Início</a>
+      <a href="../index.html#projetos" aria-current="page">Projetos</a>
+      <a href="../index.html#sobre">Sobre</a>
+      <a href="../index.html#tecnologias">Tecnologias</a>
+      <a href="../index.html#contato">Contato</a>
+      <span class="nav-side">
+        <a href="https://github.com/Pedrocerqueiracavalcante" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/pedrocerq/" target="_blank" rel="noopener">LinkedIn</a>
+      </span>
+    </nav>
+    <button class="icon-btn" id="theme-btn" type="button" aria-label="Alternar tema claro e escuro">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <button class="icon-btn burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="crumb"><a href="../index.html#projetos">Projetos</a> / Moreno Home</p>
+  </div>
+
+  <section class="p-hero">
+    <div class="wrap p-hero-inner">
+      <h1>Moreno Home</h1>
+      <p class="p-sub">Sistema web para atendimento digital de hóspedes em alojamento local, com painel de gestão para a equipa.</p>
+      <div class="p-hero-meta">
+        <span class="status">Em produção</span>
+        <span class="status status-alt">Projeto privado</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="p-shot">
+      <img src="../assets/img/moreno.jpg" alt="Ecrã de entrada do Moreno Home: painel escuro com a marca à esquerda e, à direita, o formulário de código de reserva com separadores para hóspede e equipa" width="1320" height="825">
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="doc" id="doc">
+
+      <div class="doc-main">
+
+        <section class="block">
+          <h2>Resumo</h2>
+          <p class="block-q">O que é este projeto?</p>
+          <p>Uma aplicação web mobile-first, instalável como app, para um apartamento de arrendamento de curta duração. O hóspede lê o QR Code à entrada e encontra uma saudação e sete cartões: limpeza, compras, comida, manutenção, transporte, atividades e falar connosco.</p>
+          <p>Do outro lado existe um painel onde a equipa vê os pedidos a chegar, assume-os e conclui-os, com histórico pesquisável e gestão de quartos.</p>
+        </section>
+
+        <section class="block">
+          <h2>Problema</h2>
+          <p class="block-q">Qual o problema que precisava ser resolvido?</p>
+          <p>Um hóspede não instala uma aplicação para pedir toalhas. Também não quer aprender menus, criar conta, nem indicar em que quarto está — informação que o alojamento já tem.</p>
+          <p>E havia um problema mais sério por baixo: quando o pedido vive apenas numa conversa de WhatsApp, ele deixa de existir se ninguém ler a mensagem. Basta o hóspede fechar o separador, o navegador bloquear a janela ou o número estar mal configurado para o pedido desaparecer sem deixar rasto.</p>
+        </section>
+
+        <section class="block">
+          <h2>Solução</h2>
+          <p class="block-q">Como o sistema resolve esse problema?</p>
+          <p>O QR Code de cada quarto transporta o número do quarto no próprio endereço, por isso o hóspede nunca o escreve. Cada serviço é uma imagem, uma pergunta e uma escolha — fluxos de dois ou três passos, nunca mais. Não há catálogo de produtos nem de restaurantes: escrever uma frase é mais rápido do que procurar numa lista.</p>
+          <p>A parte decisiva é a ordem das operações na confirmação:</p>
+          <div class="callout">
+            <b>pedido gravado</b> &rarr; referência gerada (MH-0004) &rarr; WhatsApp abre com a mensagem pronta
+          </div>
+          <p>O pedido é persistido na base de dados <strong>antes</strong> de o WhatsApp abrir. Assim ele existe sempre, mesmo que a janela seja bloqueada — e nesse caso o ecrã de confirmação mostra um botão para abrir o WhatsApp manualmente. A referência é o que liga a conversa à linha do painel.</p>
+        </section>
+
+        <section class="block">
+          <h2>Meu papel</h2>
+          <p class="block-q">O que eu desenvolvi?</p>
+          <p><strong>Único desenvolvedor do projeto.</strong> Arquitetura, interface do hóspede, painel da equipa, API, modelo de dados e publicação.</p>
+          <p>Um detalhe que resume a abordagem: a aplicação serve uma Content-Security-Policy com <code>script-src 'self'</code>, o que impede carregar um gerador de QR Code a partir de um CDN. Em vez de abrir uma exceção na política de segurança ou introduzir um passo de build só para isso, escrevi o gerador de raiz — modo byte, correção de erros nível M, versões 1 a 10.</p>
+        </section>
+
+        <section class="block">
+          <h2>Principais funcionalidades</h2>
+          <ul class="feat">
+            <li><b>Entrada por QR Code</b> que já identifica o quarto, sem login nem formulário.</li>
+            <li><b>Sete fluxos de pedido</b> de dois a três passos: limpeza, compras, comida, manutenção, transporte, atividades e contacto direto.</li>
+            <li><b>Pedido persistido antes do WhatsApp</b>, com referência própria, para nenhum pedido se perder.</li>
+            <li><b>Acompanhamento pelo hóspede</b> com estado em destaque e linha do tempo dos passos.</li>
+            <li><b>Painel em tempo real</b> — pedidos novos aparecem sem recarregar a página, por Server-Sent Events.</li>
+            <li><b>Histórico pesquisável</b> por referência, quarto, hóspede, serviço ou responsável, com filtros de período e estado.</li>
+            <li><b>Gestão de quartos</b> com QR Code gerado no cliente, cartão para imprimir, download em PNG de alta resolução e link partilhável.</li>
+            <li><b>Dois perfis de acesso</b> — administração e equipa — com permissões distintas, recusadas também por acesso direto ao URL.</li>
+            <li><b>Três idiomas</b>: português, francês e inglês.</li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <h2>Resultado</h2>
+          <p>A aplicação está em produção em <strong>moreno-home.pages.dev</strong>, servida pelo Cloudflare Pages com base de dados D1.</p>
+          <p>O modelo de dados foi desenhado para crescer: a estrutura <strong>Propriedade &rarr; Unidade &rarr; Reserva</strong> mantém-se com um único apartamento, e todos os pedidos guardam a propriedade e o apartamento a que pertencem. Acrescentar um segundo alojamento mais tarde não obriga a reconstruir nada.</p>
+          <p>O ecrã de entrada inclui um acesso de demonstração, por isso a aplicação pode ser experimentada por dentro sem credenciais reais.</p>
+        </section>
+
+      </div>
+
+      <aside class="doc-side">
+        <div class="side-group">
+          <h3>Frontend</h3>
+          <ul><li>JavaScript, sem framework</li><li>HTML5 e CSS3</li><li>PWA e Service Worker</li></ul>
+        </div>
+        <div class="side-group">
+          <h3>Backend</h3>
+          <ul><li>Cloudflare Pages Functions</li><li>Sessões e autenticação</li><li>Permissões por perfil</li></ul>
+        </div>
+        <div class="side-group">
+          <h3>Banco de dados</h3>
+          <ul><li>Cloudflare D1</li><li>SQL e migrações</li><li>10 entidades relacionadas</li></ul>
+        </div>
+        <div class="side-group">
+          <h3>APIs</h3>
+          <ul><li>REST própria</li><li>Server-Sent Events</li></ul>
+        </div>
+        <div class="side-group">
+          <h3>Deploy</h3>
+          <ul><li>Cloudflare Pages</li><li>Wrangler</li></ul>
+        </div>
+        <div class="side-group">
+          <h3>Integrações</h3>
+          <ul><li>WhatsApp</li><li>Gerador de QR Code próprio</li></ul>
+        </div>
+
+        <div class="side-actions">
+          <a class="btn btn-primary" href="https://moreno-home.pages.dev" target="_blank" rel="noopener">Abrir projeto</a>
+          <p class="note-private">O repositório deste projeto é privado, por ser um sistema de um cliente. O código pode ser mostrado numa conversa.</p>
+        </div>
+      </aside>
+
+    </div>
+
+    <nav class="p-nav" aria-label="Navegação entre projetos">
+      <a href="../index.html#projetos">&larr; Todos os projetos</a>
+      <a href="easy-clean.html">Easy Clean Luxembourg &rarr;</a>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Pedro Cerqueira Cavalcante &mdash; Desenvolvedor Web</p>
+    <p class="mono">HTML, CSS e JavaScript &middot; GitHub Pages</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js?v=5" defer></script>
+</body>
+</html>

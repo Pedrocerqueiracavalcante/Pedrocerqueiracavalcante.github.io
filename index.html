@@ -3,462 +3,356 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pedro Cerqueira — Sites e sistemas para negócios</title>
-<meta name="description" content="Desenvolvedor web. Construo sites, áreas de cliente, painéis de gestão e integrações com pagamentos e WhatsApp — do primeiro rascunho ao domínio no ar. Três produtos em produção.">
+<title>Pedro Cerqueira Cavalcante — Desenvolvedor Web</title>
+<meta name="description" content="Desenvolvedor web. Desenvolvo sites, aplicações web e sistemas completos, do frontend ao backend. Quatro projetos em produção: Moreno Home, Easy Clean, Old School Music e Menuz.">
 <meta name="author" content="Pedro Cerqueira Cavalcante">
 <link rel="canonical" href="https://pedrocerqueiracavalcante.github.io/">
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pedro Cerqueira — Sites e sistemas para negócios">
-<meta property="og:description" content="Três produtos em produção que pode abrir agora. Landing pages, áreas de cliente, painéis de gestão, pagamentos e WhatsApp.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Pedro Cerqueira Cavalcante — Desenvolvedor Web">
+<meta property="og:description" content="Sites, aplicações web e sistemas completos, do frontend ao backend. Quatro projetos em produção.">
 <meta property="og:url" content="https://pedrocerqueiracavalcante.github.io/">
-<meta property="og:image" content="https://pedrocerqueiracavalcante.github.io/assets/img/easyclean.jpg">
+<meta property="og:image" content="https://pedrocerqueiracavalcante.github.io/assets/img/moreno.jpg">
 <meta property="og:locale" content="pt_PT">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://pedrocerqueiracavalcante.github.io/assets/img/easyclean.jpg">
-<meta name="theme-color" content="#8C1D2F">
+<meta name="twitter:image" content="https://pedrocerqueiracavalcante.github.io/assets/img/moreno.jpg">
+<meta name="theme-color" content="#C42038">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%238C1D2F'/><text x='50' y='71' font-size='58' font-family='Georgia,serif' font-weight='700' fill='%23F4F2ED' text-anchor='middle'>P</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23C42038'/><text x='32' y='44' font-size='34' font-family='ui-monospace,monospace' font-weight='600' fill='%23fff' text-anchor='middle'>P</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/styles.css?v=4">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css?v=5">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Pedro Cerqueira Cavalcante",
-  "jobTitle": "Desenvolvedor web",
+  "jobTitle": "Desenvolvedor Web",
+  "description": "Desenvolvo sites, aplicações web e sistemas completos, do frontend ao backend.",
   "url": "https://pedrocerqueiracavalcante.github.io/",
   "sameAs": [
     "https://github.com/Pedrocerqueiracavalcante",
     "https://www.linkedin.com/in/pedrocerq/"
   ],
-  "knowsAbout": ["Next.js","TypeScript","React","Cloudflare Workers","Cloudflare D1","Tailwind CSS","JavaScript","HTML5","CSS3","SQL","Stripe","PWA","SEO"]
+  "knowsAbout": [
+    "Desenvolvimento web","JavaScript","TypeScript","React","Next.js","HTML5","CSS3",
+    "Node.js","Cloudflare Workers","Cloudflare Pages","Cloudflare D1","SQL","Drizzle ORM",
+    "Progressive Web Apps","REST APIs","Server-Sent Events","Stripe","SEO"
+  ]
 }
 </script>
 </head>
 <body>
 
-<a class="skip" href="#projetos">Saltar para os projetos</a>
+<a class="skip" href="#projetos">Ir para os projetos</a>
 
-<header class="topbar">
-  <a class="brand" href="#top">
-    <span class="brand-mark" aria-hidden="true">P</span>
-    <span class="brand-name">Pedro Cerqueira</span>
-  </a>
-  <nav class="topnav" aria-label="Principal">
-    <a href="#projetos">Projetos</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#porque">Porquê eu</a>
-    <a href="#contacto" class="nav-cta">Contacto</a>
-  </nav>
-  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro">
-    <span class="theme-icon" aria-hidden="true"></span>
-  </button>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#inicio">
+      <span class="logo-mark" aria-hidden="true">PC</span>
+      <span>Pedro Cerqueira</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#tecnologias">Tecnologias</a>
+      <a href="#contato">Contato</a>
+      <span class="nav-side">
+        <a href="https://github.com/Pedrocerqueiracavalcante" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/pedrocerq/" target="_blank" rel="noopener">LinkedIn</a>
+      </span>
+    </nav>
+
+    <button class="icon-btn" id="theme-btn" type="button" aria-label="Alternar tema claro e escuro">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+      </svg>
+    </button>
+
+    <button class="icon-btn burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
+  </div>
 </header>
 
-<main id="top">
+<main>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <p class="availability">
-      <span class="dot" aria-hidden="true"></span>
-      Disponível para projetos freelance e para uma posição fixa
-    </p>
+  <!-- ================== 1. PRIMEIRA TELA ================== -->
+  <section class="hero" id="inicio">
+    <div class="wrap hero-inner">
+      <h1>Pedro Cerqueira Cavalcante</h1>
+      <p class="role">Desenvolvedor Web</p>
+      <p class="intro">Desenvolvo sites, aplicações web e sistemas completos, do frontend ao backend.</p>
 
-    <h1>Três produtos em produção. <em>Pode abri-los agora.</em></h1>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+        <a class="btn btn-ghost" href="https://github.com/Pedrocerqueiracavalcante" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/pedrocerq/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
 
-    <p class="lede">
-      Sou desenvolvedor web e construo do primeiro rascunho ao domínio no ar:
-      a página que capta o cliente, a área onde ele acompanha o pedido, o painel
-      onde a sua equipa trabalha, o pagamento que cobra e o servidor que aguenta.
-    </p>
-
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#contacto">Falar sobre o seu projeto</a>
-      <a class="btn btn-ghost" href="#projetos">Ver os projetos</a>
+      <p class="hero-meta">Projetos reais &bull; Desenvolvimento web &bull; Soluções digitais</p>
     </div>
-
-    <dl class="stats" aria-label="Resumo de trabalho">
-      <div class="stat"><dt>Produtos construídos</dt><dd>4</dd></div>
-      <div class="stat"><dt>Em produção</dt><dd>3</dd></div>
-      <div class="stat"><dt>Commits meus</dt><dd>222</dd></div>
-      <div class="stat"><dt>Idiomas entregues</dt><dd>5</dd></div>
-    </dl>
   </section>
 
-  <!-- ================= PROVA ================= -->
-  <section class="proof">
-    <div class="proof-inner">
-      <div class="proof-text">
-        <p class="kicker">Verificável</p>
-        <h2>Não precisa de acreditar em mim</h2>
-        <p>Estes sites estão online neste momento, com clientes reais a usá-los.
-        Abra, clique, teste. É a única prova que interessa.</p>
-        <p class="proof-extra">Um deles está sob a minha manutenção mensal desde maio.</p>
+  <!-- ================== 2. PROJETOS ================== -->
+  <section class="section" id="projetos">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Projetos selecionados</p>
+        <h2>Quatro sistemas construídos e publicados</h2>
+        <p>Cada um resolve um problema concreto. Todos estão online e podem ser abertos agora.</p>
       </div>
-      <ul class="proof-links">
-        <li>
-          <a href="https://oldschoolmusic.pt" target="_blank" rel="noopener">
-            <span class="pl-name">oldschoolmusic.pt</span>
-            <span class="pl-desc">Casa de eventos musicais &middot; 3 idiomas &middot; manutenção mensal minha</span>
+
+      <div class="projects">
+
+        <article class="pcard reveal">
+          <a class="pcard-thumb" href="projetos/moreno-home.html" aria-label="Ver detalhes do projeto Moreno Home">
+            <img src="assets/img/moreno.jpg" alt="Ecrã de entrada do Moreno Home, com acesso por código de reserva para hóspede ou equipa" width="1320" height="825" loading="lazy" decoding="async">
           </a>
-        </li>
-        <li>
-          <a href="https://easyclean.cerqueirapedro275.workers.dev" target="_blank" rel="noopener">
-            <span class="pl-name">Easy Clean Luxembourg</span>
-            <span class="pl-desc">Plataforma com contas, pagamentos e admin &middot; 5 idiomas</span>
+          <div class="pcard-body">
+            <h3>Moreno Home</h3>
+            <p class="desc">Sistema web para atendimento digital de hóspedes em alojamento local, com painel de gestão para a equipa.</p>
+            <p class="tech-line">JavaScript &bull; Cloudflare Pages &bull; Cloudflare D1 &bull; PWA</p>
+            <div class="pcard-foot">
+              <span class="status">Em produção</span>
+              <a class="btn btn-ghost btn-sm" href="projetos/moreno-home.html">Ver projeto</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pcard reveal">
+          <a class="pcard-thumb" href="projetos/easy-clean.html" aria-label="Ver detalhes do projeto Easy Clean Luxembourg">
+            <img src="assets/img/easyclean.jpg" alt="Página inicial do Easy Clean, com chamada para criar conta e cartão de pedido rápido" width="1320" height="825" loading="lazy" decoding="async">
           </a>
-        </li>
-        <li>
-          <a href="https://pedrocerqueiracavalcante.github.io/aura-studio-site/" target="_blank" rel="noopener">
-            <span class="pl-name">Menuz Barbearias</span>
-            <span class="pl-desc">Descoberta e agendamento em barbearias</span>
+          <div class="pcard-body">
+            <h3>Easy Clean Luxembourg</h3>
+            <p class="desc">Plataforma de lavandaria ao domicílio com área de cliente, painel administrativo, pagamentos e cinco idiomas.</p>
+            <p class="tech-line">Next.js &bull; TypeScript &bull; Cloudflare Workers &bull; D1 &bull; Stripe</p>
+            <div class="pcard-foot">
+              <span class="status">Em produção</span>
+              <a class="btn btn-ghost btn-sm" href="projetos/easy-clean.html">Ver projeto</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pcard reveal">
+          <a class="pcard-thumb" href="projetos/old-school-music.html" aria-label="Ver detalhes do projeto Old School Music">
+            <img src="assets/img/osm.jpg" alt="Página inicial do Old School Music, com vídeo de fundo e cartão do próximo evento" width="1320" height="825" loading="lazy" decoding="async">
           </a>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ================= PROJETOS ================= -->
-  <section id="projetos" class="section">
-    <div class="section-head">
-      <p class="kicker">Projetos</p>
-      <h2>O que cada negócio precisava, e o que entreguei</h2>
-      <p class="section-note">Em cada projeto digo exatamente qual foi o meu papel. Os números de commits vêm do histórico do Git e são verificáveis.</p>
-    </div>
-
-    <div class="projects">
-
-      <!-- Old School Music -->
-      <article class="project">
-        <a class="project-media" href="https://oldschoolmusic.pt" target="_blank" rel="noopener" aria-label="Abrir oldschoolmusic.pt numa nova janela">
-          <img src="assets/img/osm.jpg" alt="Página inicial do site Old School Music, com vídeo de fundo de um evento noturno e cartão do próximo evento" width="1320" height="825" loading="lazy" decoding="async">
-        </a>
-        <div class="project-body">
-          <div class="project-top">
-            <span class="badge badge-live">Em produção</span>
-            <span class="badge badge-care">Manutenção mensal</span>
-            <span class="meta">98 de 110 commits &middot; desde mai 2026</span>
+          <div class="pcard-body">
+            <h3>Old School Music</h3>
+            <p class="desc">Site de uma casa de eventos musicais, com agenda, página própria por evento e três idiomas.</p>
+            <p class="tech-line">HTML &bull; CSS &bull; JavaScript &bull; Cloudflare Pages &bull; PWA</p>
+            <div class="pcard-foot">
+              <span class="status">Em produção</span>
+              <span class="status status-alt">Manutenção mensal</span>
+              <a class="btn btn-ghost btn-sm" href="projetos/old-school-music.html">Ver projeto</a>
+            </div>
           </div>
-          <h3>Old School Music</h3>
-          <p class="project-role">Site de uma casa de eventos musicais, com domínio próprio. Cliente em acompanhamento contínuo.</p>
+        </article>
 
-          <div class="pc-block">
-            <p class="pc-label">O problema</p>
-            <p>A agenda dependia das redes sociais. Não havia página própria por evento
-            para partilhar nem para o Google indexar, e o público estrangeiro não era servido.</p>
+        <article class="pcard reveal">
+          <a class="pcard-thumb" href="projetos/menuz.html" aria-label="Ver detalhes do projeto Menuz Barbearias">
+            <img src="assets/img/menuz.jpg" alt="Página inicial da Menuz, com pesquisa de barbearias e promoção em destaque" width="1320" height="825" loading="lazy" decoding="async">
+          </a>
+          <div class="pcard-body">
+            <h3>Menuz Barbearias</h3>
+            <p class="desc">Plataforma de descoberta e agendamento em barbearias, com catálogo de cortes e geolocalização.</p>
+            <p class="tech-line">HTML &bull; CSS &bull; JavaScript &bull; GitHub Pages</p>
+            <div class="pcard-foot">
+              <span class="status">Em produção</span>
+              <a class="btn btn-ghost btn-sm" href="projetos/menuz.html">Ver projeto</a>
+            </div>
           </div>
-          <div class="pc-block">
-            <p class="pc-label">O que construí</p>
-            <p>Site rápido, sem framework, para carregar em dados móveis à porta do evento.
-            Um script gera a página de cada evento a partir da agenda, com dados estruturados
-            para o Google mostrar datas e local nos resultados. Instalável como app, leitor de
-            música integrado, e registo no Search Console, Bing e IndexNow.</p>
-          </div>
-          <div class="pc-block">
-            <p class="pc-label">O meu papel</p>
-            <p><strong>Participação no desenvolvimento, em colaboração com o proprietário</strong>
-            — 98 dos 110 commits do repositório são meus, no site, no sistema de eventos, na
-            versão multilingue e no SEO.</p>
-            <p><strong>E continuo responsável por ele.</strong> Faço a manutenção mensal do
-            site: novos eventos, atualizações, correções e acompanhamento. Não foi um projeto
-            entregue e esquecido — é um cliente que conto todos os meses.</p>
-          </div>
+        </article>
 
-          <ul class="chips">
-            <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Cloudflare Pages</li>
-            <li>PWA</li><li>Service Worker</li><li>SEO / JSON-LD</li><li>PT · EN · FR</li>
-          </ul>
-
-          <div class="project-links">
-            <a class="btn btn-small btn-primary" href="https://oldschoolmusic.pt" target="_blank" rel="noopener">Abrir oldschoolmusic.pt</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Easy Clean -->
-      <article class="project">
-        <a class="project-media" href="https://easyclean.cerqueirapedro275.workers.dev" target="_blank" rel="noopener" aria-label="Abrir o site Easy Clean numa nova janela">
-          <img src="assets/img/easyclean.jpg" alt="Página inicial do Easy Clean, com o título Roupa limpa, sem perder tempo e um cartão de pedido rápido" width="1320" height="825" loading="lazy" decoding="async">
-        </a>
-        <div class="project-body">
-          <div class="project-top">
-            <span class="badge badge-live">Em produção</span>
-            <span class="meta">69 commits &middot; jun 2026</span>
-          </div>
-          <h3>Easy Clean Luxembourg</h3>
-          <p class="project-role">Plataforma completa para uma lavandaria ao domicílio no Luxemburgo.</p>
-
-          <div class="pc-block">
-            <p class="pc-label">O problema</p>
-            <p>Os pedidos entravam por telefone, um a um. Não havia forma de o cliente
-            acompanhar a roupa nem de cobrar por subscrição — num país onde se atende
-            em cinco línguas.</p>
-          </div>
-          <div class="pc-block">
-            <p class="pc-label">O que construí</p>
-            <p>Landing page, páginas de serviço com o cuidado explicado por tipo de tecido,
-            e área de cliente com pedidos, histórico, acompanhamento, perfil e subscrição.
-            Painel de administração para a equipa gerir tudo. Autenticação, pagamentos e
-            subscrições Stripe, emails automáticos e base de dados própria — em PT, EN, FR,
-            DE e ES.</p>
-          </div>
-          <div class="pc-block">
-            <p class="pc-label">O meu papel</p>
-            <p><strong>Único desenvolvedor.</strong> Os 69 commits do projeto são meus.
-            Do desenho do ecrã ao esquema da base de dados, à ligação do Stripe e ao deploy.</p>
-          </div>
-
-          <ul class="chips">
-            <li>Next.js 15</li><li>TypeScript</li><li>React</li><li>Tailwind v4</li>
-            <li>Cloudflare Workers</li><li>Cloudflare D1</li><li>Drizzle ORM</li>
-            <li>Better Auth</li><li>Stripe</li><li>Resend</li><li>5 idiomas</li>
-          </ul>
-
-          <div class="project-links">
-            <a class="btn btn-small btn-primary" href="https://easyclean.cerqueirapedro275.workers.dev" target="_blank" rel="noopener">Abrir o site</a>
-            <a class="btn btn-small btn-ghost" href="https://github.com/Pedrocerqueiracavalcante/easyclean" target="_blank" rel="noopener">Ver o código</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Menuz -->
-      <article class="project">
-        <a class="project-media" href="https://pedrocerqueiracavalcante.github.io/aura-studio-site/" target="_blank" rel="noopener" aria-label="Abrir o site Menuz Barbearias numa nova janela">
-          <img src="assets/img/menuz.jpg" alt="Página inicial da Menuz, com pesquisa de barbearias, indicadores e promoção em destaque" width="1320" height="825" loading="lazy" decoding="async">
-        </a>
-        <div class="project-body">
-          <div class="project-top">
-            <span class="badge badge-live">Em produção</span>
-            <span class="meta">49 commits &middot; jul 2026</span>
-          </div>
-          <h3>Menuz Barbearias</h3>
-          <p class="project-role">Plataforma de descoberta e agendamento para o nicho de beleza.</p>
-
-          <div class="pc-block">
-            <p class="pc-label">O problema</p>
-            <p>Uma barbearia precisa de estar online depressa, com marca própria, e o cliente
-            precisa de escolher o corte antes de escrever a primeira mensagem — senão a
-            conversa começa com "quanto custa?" e morre aí.</p>
-          </div>
-          <div class="pc-block">
-            <p class="pc-label">O que construí</p>
-            <p>Pesquisa de estabelecimentos, avaliações, promoções em destaque e catálogo de
-            cortes com grelha filtrável: ao selecionar um corte, o formulário e o link do
-            WhatsApp ficam preenchidos com o nome dele. Secção de barbearias próximas com
-            geolocalização e mini-mapa. A identidade visual troca-se em variáveis CSS, por
-            isso o mesmo produto serve outro cliente em minutos.</p>
-          </div>
-          <div class="pc-block">
-            <p class="pc-label">O meu papel</p>
-            <p><strong>Único desenvolvedor.</strong> Os 49 commits são meus — conceito,
-            interface, geolocalização, integração com WhatsApp e publicação.</p>
-          </div>
-
-          <ul class="chips">
-            <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>GitHub Pages</li>
-            <li>Geolocalização</li><li>WhatsApp</li><li>Design system em CSS</li>
-          </ul>
-
-          <div class="project-links">
-            <a class="btn btn-small btn-primary" href="https://pedrocerqueiracavalcante.github.io/aura-studio-site/" target="_blank" rel="noopener">Abrir o site</a>
-            <a class="btn btn-small btn-ghost" href="https://github.com/Pedrocerqueiracavalcante/aura-studio-site" target="_blank" rel="noopener">Ver o código</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Moreno Home -->
-      <article class="project">
-        <div class="project-media project-media--art" data-art="moreno" aria-hidden="true">
-          <span class="art-label">Moreno<br>Home</span>
-        </div>
-        <div class="project-body">
-          <div class="project-top">
-            <span class="badge">Em desenvolvimento</span>
-            <span class="meta">ago 2026</span>
-          </div>
-          <h3>Moreno Home</h3>
-          <p class="project-role">App de apartamento para alojamento local.</p>
-
-          <div class="pc-block">
-            <p class="pc-label">O problema</p>
-            <p>O hóspede precisa de pedir limpeza, compras ou manutenção sem instalar nada,
-            sem aprender menus e sem ter de dizer em que quarto está.</p>
-          </div>
-          <div class="pc-block">
-            <p class="pc-label">O que construí</p>
-            <p>Web app mobile-first que abre por QR Code — e o QR já traz o quarto consigo.
-            Sete cartões grandes, uma frase, confirmar. O pedido fica <em>registado na base de
-            dados</em> e só depois o WhatsApp abre: assim nenhum pedido se perde por ninguém
-            ter lido a mensagem. A equipa tem painel de pedidos, histórico, quartos com QR e
-            informações do alojamento.</p>
-          </div>
-          <div class="pc-block">
-            <p class="pc-label">O meu papel</p>
-            <p><strong>Único desenvolvedor.</strong> Arquitetura, interface, base de dados e API.</p>
-          </div>
-
-          <ul class="chips">
-            <li>PWA</li><li>JavaScript</li><li>Cloudflare Pages</li><li>Cloudflare D1</li>
-            <li>Wrangler</li><li>QR Code</li><li>WhatsApp</li>
-          </ul>
-
-          <div class="project-links">
-            <a class="btn btn-small btn-ghost" href="https://github.com/Pedrocerqueiracavalcante/moreno-home" target="_blank" rel="noopener">Ver o código</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ================= PORQUÊ EU ================= -->
-  <section id="porque" class="section">
-    <div class="section-head">
-      <p class="kicker">Porquê trabalhar comigo</p>
-      <h2>Uma pessoa, o projeto inteiro</h2>
-    </div>
-
-    <div class="cards">
-      <article class="card">
-        <h3>Faço tudo de ponta a ponta</h3>
-        <p>Desenho, frontend, backend, base de dados, pagamentos, deploy e domínio.
-        Não precisa de contratar três pessoas nem de gerir quem fala com quem.</p>
-      </article>
-      <article class="card">
-        <h3>Entrego endereços, não ficheiros</h3>
-        <p>O projeto acaba com o site no ar, no seu domínio, com certificado e a funcionar
-        no telemóvel. Não acaba com uma pasta para alguém instalar.</p>
-      </article>
-      <article class="card">
-        <h3>Código seu, sem mensalidades</h3>
-        <p>Nada de construtores de sites que cobram para sempre e prendem o conteúdo.
-        O código fica seu, no seu repositório, e pode ser continuado por quem quiser.</p>
-      </article>
-      <article class="card">
-        <h3>Preparado para vários mercados</h3>
-        <p>Já entreguei em cinco idiomas, com SEO e dados estruturados. Se o seu cliente
-        fala outra língua, o site fala também.</p>
-      </article>
-      <article class="card card-highlight">
-        <h3>Não desapareço depois da entrega</h3>
-        <p>Faço manutenção mensal de um site em produção desde maio. Se precisar de alguém
-        que continue lá quando surgir um problema ou um conteúdo novo, é o que já faço
-        todos os meses para outro cliente.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ================= SERVIÇOS ================= -->
-  <section id="servicos" class="section">
-    <div class="section-head">
-      <p class="kicker">O que faço</p>
-      <h2>Quatro coisas, feitas até ao fim</h2>
-    </div>
-
-    <div class="cards">
-      <article class="card">
-        <h3>Site e landing page</h3>
-        <p>Página rápida, responsiva e pensada para converter — com o texto, as fotos e o
-        botão certo no sítio certo. Preparada para aparecer no Google.</p>
-      </article>
-      <article class="card">
-        <h3>Área de cliente e painel</h3>
-        <p>Login, pedidos, histórico, acompanhamento e perfil para o cliente. Do outro lado,
-        um painel onde a sua equipa vê e resolve o que entra.</p>
-      </article>
-      <article class="card">
-        <h3>Integrações que poupam tempo</h3>
-        <p>Pagamentos e subscrições com Stripe, emails automáticos, e o pedido a chegar
-        ao WhatsApp já escrito — sem ninguém copiar nada à mão.</p>
-      </article>
-      <article class="card">
-        <h3>Domínio, deploy e publicação</h3>
-        <p>Trato do alojamento, do domínio e do certificado. Recebe um endereço a funcionar,
-        não uma pasta para alguém instalar.</p>
-      </article>
-      <article class="card card-highlight">
-        <h3>Manutenção mensal</h3>
-        <p>Um site não acaba no dia em que abre. Por um valor mensal, trato das
-        atualizações, dos conteúdos novos, das correções e de manter tudo no ar — como
-        já faço no <a href="https://oldschoolmusic.pt" target="_blank" rel="noopener">oldschoolmusic.pt</a>.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ================= PROCESSO ================= -->
-  <section id="processo" class="section">
-    <div class="section-head">
-      <p class="kicker">Como trabalho</p>
-      <h2>Do primeiro rascunho ao domínio no ar</h2>
-      <p class="section-note">Sete etapas, na ordem em que acontecem. Vê o resultado em cada uma — não fica meses sem notícias.</p>
-    </div>
-
-    <ol class="steps">
-      <li><span class="step-n">01</span><div><h3>Conversa</h3><p>Percebo o negócio, quem é o cliente e o que tem de acontecer no site.</p></div></li>
-      <li><span class="step-n">02</span><div><h3>Design e estrutura</h3><p>Decido as páginas, a hierarquia e o aspeto antes de escrever código.</p></div></li>
-      <li><span class="step-n">03</span><div><h3>Frontend</h3><p>Construo as páginas responsivas, testadas em telemóvel primeiro.</p></div></li>
-      <li><span class="step-n">04</span><div><h3>Backend e base de dados</h3><p>Login, pedidos, painel e tudo o que precisa de ficar guardado.</p></div></li>
-      <li><span class="step-n">05</span><div><h3>Integrações</h3><p>Pagamentos, emails e WhatsApp ligados e a funcionar de verdade.</p></div></li>
-      <li><span class="step-n">06</span><div><h3>Testes e deploy</h3><p>Verifico, publico na cloud e aponto o seu domínio.</p></div></li>
-      <li><span class="step-n">07</span><div><h3>Melhorias</h3><p>O site continua vivo: ajusto, acrescento e mantenho.</p></div></li>
-    </ol>
-  </section>
-
-  <!-- ================= STACK ================= -->
-  <section class="section">
-    <div class="section-head">
-      <p class="kicker">Ferramentas</p>
-      <h2>O que uso — e onde já usei a sério</h2>
-      <p class="section-note">Nada nesta lista está aqui por ter lido sobre isso. Está tudo em pelo menos um dos projetos acima.</p>
-    </div>
-
-    <div class="stack">
-      <div class="stack-group">
-        <h3>Frontend</h3>
-        <ul class="chips chips-lg"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js 15</li><li>Tailwind CSS</li><li>PWA</li></ul>
-      </div>
-      <div class="stack-group">
-        <h3>Backend e dados</h3>
-        <ul class="chips chips-lg"><li>Node.js</li><li>Cloudflare Workers</li><li>Cloudflare Pages</li><li>Cloudflare D1</li><li>SQLite</li><li>SQL</li><li>Drizzle ORM</li><li>Better Auth</li></ul>
-      </div>
-      <div class="stack-group">
-        <h3>Integrações e entrega</h3>
-        <ul class="chips chips-lg"><li>Stripe</li><li>Resend</li><li>WhatsApp</li><li>Git</li><li>GitHub</li><li>Wrangler</li><li>SEO / JSON-LD</li><li>i18n</li></ul>
       </div>
     </div>
   </section>
 
-  <!-- ================= CONTACTO ================= -->
-  <section id="contacto" class="section contact">
-    <div class="contact-inner">
-      <p class="kicker">Contacto</p>
-      <h2>Diga-me o que o seu negócio precisa</h2>
-      <p class="lede">
-        Escreva-me o que faz e o que quer que o site resolva. Respondo com uma proposta
-        concreta: o que dá para fazer, em quanto tempo e por quanto. Sem compromisso.
-      </p>
+  <!-- ================== 5. GITHUB ================== -->
+  <section class="section" id="github">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Código</p>
+        <h2>Também construo no GitHub</h2>
+        <p>Alguns repositórios públicos onde o código pode ser lido por inteiro.</p>
+      </div>
+
+      <div class="repos">
+        <article class="repo reveal">
+          <h3>easyclean</h3>
+          <p>Plataforma completa da lavandaria: app Next.js, schema da base de dados, autenticação e integração de pagamentos.</p>
+          <p class="tech-line">TypeScript</p>
+          <a class="rlink" href="https://github.com/Pedrocerqueiracavalcante/easyclean" target="_blank" rel="noopener">Ver repositório &rarr;</a>
+        </article>
+
+        <article class="repo reveal">
+          <h3>aura-studio-site</h3>
+          <p>Interface da Menuz Barbearias: catálogo filtrável, geolocalização e troca completa de identidade por variáveis CSS.</p>
+          <p class="tech-line">HTML &bull; CSS &bull; JavaScript</p>
+          <a class="rlink" href="https://github.com/Pedrocerqueiracavalcante/aura-studio-site" target="_blank" rel="noopener">Ver repositório &rarr;</a>
+        </article>
+
+        <article class="repo reveal">
+          <h3>Pedrocerqueiracavalcante.github.io</h3>
+          <p>Este portfólio. Site estático sem framework nem passo de build, publicado pelo GitHub Pages.</p>
+          <p class="tech-line">HTML &bull; CSS &bull; JavaScript</p>
+          <a class="rlink" href="https://github.com/Pedrocerqueiracavalcante/Pedrocerqueiracavalcante.github.io" target="_blank" rel="noopener">Ver repositório &rarr;</a>
+        </article>
+      </div>
+
+      <div class="section-foot">
+        <a class="btn btn-ghost" href="https://github.com/Pedrocerqueiracavalcante" target="_blank" rel="noopener">Ver GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== 6. SOBRE ================== -->
+  <section class="section" id="sobre">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Sobre mim</p>
+        <h2>Transformo uma ideia num produto que funciona</h2>
+      </div>
+
+      <div class="about">
+        <div class="about-text">
+          <p>Sou desenvolvedor web e trabalho o projeto inteiro: desenho a interface, construo o frontend, escrevo a API, modelo a base de dados e publico em produção. Os quatro sistemas listados aqui foram construídos assim, e estão todos online.</p>
+          <p>O tipo de problema que resolvo bem é o de um negócio que precisa de deixar de receber pedidos por telefone ou mensagem solta. Construo o fluxo completo: a página que capta, a área onde o cliente acompanha, o painel onde a equipa resolve, e a integração que evita trabalho manual — pagamento, email ou WhatsApp com a mensagem já preenchida.</p>
+          <p>Dou atenção ao que acontece depois da entrega. Um dos sites está sob a minha manutenção mensal desde maio, e continua a receber conteúdos novos e correções.</p>
+        </div>
+
+        <dl class="caps">
+          <div><dt>Frontend</dt><dd>HTML, CSS, JS, React</dd></div>
+          <div><dt>Backend</dt><dd>Node.js, Workers</dd></div>
+          <div><dt>APIs</dt><dd>REST, SSE</dd></div>
+          <div><dt>Banco de dados</dt><dd>D1, SQLite, SQL</dd></div>
+          <div><dt>Deploy</dt><dd>Pages, Workers</dd></div>
+          <div><dt>Integrações</dt><dd>Stripe, Resend, WhatsApp</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== 7. TECNOLOGIAS ================== -->
+  <section class="section" id="tecnologias">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Tecnologias</p>
+        <h2>O que uso, e onde já usei</h2>
+        <p>Tudo nesta lista está em pelo menos um dos projetos acima. As entradas destacadas são as que uso com mais profundidade.</p>
+      </div>
+
+      <div class="stack">
+        <div>
+          <h3>Frontend</h3>
+          <ul>
+            <li class="key">JavaScript</li>
+            <li class="key">HTML5</li>
+            <li class="key">CSS3</li>
+            <li>TypeScript</li>
+            <li>React</li>
+            <li>Next.js</li>
+            <li>Tailwind CSS</li>
+            <li>PWA e Service Workers</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Backend e APIs</h3>
+          <ul>
+            <li class="key">Cloudflare Workers</li>
+            <li class="key">REST APIs</li>
+            <li>Node.js</li>
+            <li>Cloudflare Functions</li>
+            <li>Server-Sent Events</li>
+            <li>Autenticação e sessões</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Dados</h3>
+          <ul>
+            <li class="key">Cloudflare D1</li>
+            <li class="key">SQL</li>
+            <li>SQLite</li>
+            <li>Drizzle ORM</li>
+            <li>Migrações de schema</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Deploy e ferramentas</h3>
+          <ul>
+            <li class="key">Git e GitHub</li>
+            <li class="key">Cloudflare Pages</li>
+            <li>Wrangler</li>
+            <li>GitHub Pages</li>
+            <li>SEO e dados estruturados</li>
+            <li>Internacionalização</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== 8. EXPERIÊNCIA PRÁTICA ================== -->
+  <section class="section" id="experiencia">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Experiência prática</p>
+        <h2>O que já foi construído</h2>
+      </div>
+
+      <dl class="facts">
+        <div>
+          <dt><span class="n">4</span>Projetos desenvolvidos</dt>
+          <dd>Moreno Home, Easy Clean, Old School Music e Menuz.</dd>
+        </div>
+        <div>
+          <dt><span class="n">4</span>Em produção</dt>
+          <dd>Todos publicados e acessíveis publicamente.</dd>
+        </div>
+        <div>
+          <dt><span class="n">226</span>Commits nestes projetos</dt>
+          <dd>Verificáveis no histórico de cada repositório.</dd>
+        </div>
+        <div>
+          <dt><span class="n">5</span>Idiomas entregues</dt>
+          <dd>Português, inglês, francês, alemão e espanhol.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ================== CONTATO ================== -->
+  <section class="section" id="contato">
+    <div class="wrap contact-box">
+      <p class="label">Contato</p>
+      <h2>Disponível para projetos e para uma posição fixa</h2>
+      <p>Se procura alguém que construa o sistema de ponta a ponta e o coloque no ar, escreva-me. Respondo com o que dá para fazer e em quanto tempo.</p>
       <div class="contact-actions">
-        <a class="btn btn-primary" href="mailto:cerqueirapedro275@gmail.com?subject=Projeto%20de%20site">Enviar email</a>
+        <a class="btn btn-primary" href="mailto:cerqueirapedro275@gmail.com?subject=Contato%20via%20portf%C3%B3lio">Enviar email</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/pedrocerq/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/Pedrocerqueiracavalcante" target="_blank" rel="noopener">GitHub</a>
       </div>
-      <p class="contact-note">Disponível para projetos freelance e para uma posição fixa. Portugal e Luxemburgo, ou remoto.</p>
     </div>
   </section>
 
 </main>
 
-<footer class="footer">
-  <p>Pedro Cerqueira Cavalcante &middot; Desenvolvedor web</p>
-  <p class="footer-meta">Construído à mão em HTML, CSS e JavaScript, sem framework. Publicado no GitHub Pages.</p>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Pedro Cerqueira Cavalcante &mdash; Desenvolvedor Web</p>
+    <p class="mono">HTML, CSS e JavaScript &middot; GitHub Pages</p>
+  </div>
 </footer>
 
-<script src="assets/js/main.js?v=4" defer></script>
+<script src="assets/js/main.js?v=5" defer></script>
 </body>
 </html>
