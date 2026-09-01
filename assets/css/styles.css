@@ -361,6 +361,15 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.12; }
 
 .proof-text h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); margin: .4rem 0 .6rem; }
 .proof-text p { margin: 0; color: var(--ink-2); max-width: 38ch; }
+.proof-text .proof-extra {
+  margin-top: .8rem;
+  padding-left: .8rem;
+  border-left: 2px solid var(--brass);
+  font-family: var(--mono);
+  font-size: .78rem;
+  line-height: 1.6;
+  color: var(--ink-3);
+}
 
 .proof-links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .55rem; }
 .proof-links a {
@@ -408,6 +417,21 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.12; }
 .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--rule); }
 .card h3 { font-size: 1.15rem; margin-bottom: .5rem; }
 .card p { margin: 0; color: var(--ink-2); font-size: .94rem; }
+
+/* ligação dentro de um cartão */
+.card p a {
+  color: var(--oxblood);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  font-weight: 500;
+}
+.card p a:hover { text-decoration-thickness: 2px; }
+
+/* cartão de destaque: o que distingue a oferta */
+.card-highlight { border-top-color: var(--oxblood); background: var(--oxblood-soft); }
+.card-highlight h3 { color: var(--oxblood); }
+.card-highlight p { color: var(--ink-2); }
 
 /* ---------- projetos ---------- */
 .projects { display: flex; flex-direction: column; gap: 1.6rem; }
@@ -520,13 +544,21 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.12; }
   vertical-align: middle;
 }
 
+/* contrato de manutenção a decorrer — sinal de cliente recorrente */
+.badge-care {
+  background: var(--brass-soft);
+  color: var(--brass);
+  border: 1px solid color-mix(in srgb, var(--brass) 35%, transparent);
+}
+.badge-care::before { content: "↻"; margin-right: .35rem; font-weight: 700; }
+
 .meta { font-family: var(--mono); font-size: .74rem; color: var(--ink-3); margin-left: auto; }
 
 .project h3 { font-size: clamp(1.35rem, 2.6vw, 1.75rem); }
 
 .project-role { margin: -.3rem 0 .3rem; color: var(--brass); font-weight: 500; font-size: .95rem; }
 
-.pc-block { display: flex; flex-direction: column; gap: .2rem; }
+.pc-block { display: flex; flex-direction: column; gap: .45rem; }
 .pc-label {
   font-family: var(--mono);
   font-size: .67rem;
@@ -535,8 +567,10 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.12; }
   color: var(--ink-3);
   margin: 0;
 }
-.pc-block p:last-child { margin: 0; color: var(--ink-2); font-size: .94rem; }
+/* todos os parágrafos do bloco, não só o último — há blocos com dois */
+.pc-block p:not(.pc-label) { margin: 0; color: var(--ink-2); font-size: .94rem; }
 .pc-block em { color: var(--ink); font-style: italic; }
+.pc-block strong { color: var(--ink); font-weight: 600; }
 
 /* chips */
 .chips { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; padding: 0; margin: .4rem 0 0; }
