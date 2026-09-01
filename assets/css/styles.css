@@ -412,9 +412,11 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.12; }
 /* ---------- projetos ---------- */
 .projects { display: flex; flex-direction: column; gap: 1.6rem; }
 
+/* Imagem no topo, corpo por baixo: a captura ocupa a largura toda do cartão,
+   fica na proporção natural e nunca é cortada numa fatia vertical. */
 .project {
-  display: grid;
-  grid-template-columns: 24rem 1fr;
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   border: 1px solid var(--rule);
   border-radius: 8px;
@@ -423,24 +425,19 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.12; }
   transition: box-shadow .25s ease, transform .25s ease;
 }
 .project:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-@media (max-width: 62rem) { .project { grid-template-columns: 1fr; } }
 
-/* captura real do site: ligação clicável */
 .project-media {
   position: relative;
   display: block;
   overflow: hidden;
   background: var(--surface-2);
-  border-right: 1px solid var(--rule);
-  min-height: 12rem;
-}
-@media (max-width: 62rem) {
-  .project-media { border-right: 0; border-bottom: 1px solid var(--rule); }
+  border-bottom: 1px solid var(--rule);
 }
 
 .project-media img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 1320 / 825;
   object-fit: cover;
   object-position: top center;
   transition: transform .4s ease;
@@ -448,11 +445,11 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.12; }
 .project-media:hover img { transform: scale(1.03); }
 @media (prefers-reduced-motion: reduce) { .project-media:hover img { transform: none; } }
 
-/* selo "abrir" por cima da imagem */
+/* selo "abrir" sobre a imagem, no canto dela e não no fundo da coluna */
 .project-media::after {
   content: "Abrir ↗";
   position: absolute;
-  right: .7rem; bottom: .7rem;
+  right: .7rem; top: .7rem;
   font-family: var(--mono);
   font-size: .68rem;
   letter-spacing: .06em;
@@ -472,9 +469,10 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.12; }
 .project-media--art {
   display: grid;
   place-items: center;
-  padding: 1.5rem;
+  padding: 3.5rem 1.5rem;
+  min-height: 11rem;
   background: #2A3D63;
-  border-right: 1px solid var(--rule);
+  border-right: 0;
 }
 .project-media--art::after { content: none; }
 .project-media--art::before {
