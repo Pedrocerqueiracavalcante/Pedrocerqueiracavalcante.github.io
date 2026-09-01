@@ -4,16 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pedro Cerqueira — Sites e sistemas para negócios</title>
-<meta name="description" content="Desenvolvedor web. Construo sites, áreas de cliente, painéis de gestão e integrações com pagamentos e WhatsApp — do primeiro rascunho ao domínio no ar.">
+<meta name="description" content="Desenvolvedor web. Construo sites, áreas de cliente, painéis de gestão e integrações com pagamentos e WhatsApp — do primeiro rascunho ao domínio no ar. Três produtos em produção.">
 <meta name="author" content="Pedro Cerqueira Cavalcante">
 <link rel="canonical" href="https://pedrocerqueiracavalcante.github.io/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pedro Cerqueira — Sites e sistemas para negócios">
-<meta property="og:description" content="Landing pages, áreas de cliente, painéis de gestão, pagamentos e WhatsApp. Quatro produtos construídos, três no ar.">
+<meta property="og:description" content="Três produtos em produção que pode abrir agora. Landing pages, áreas de cliente, painéis de gestão, pagamentos e WhatsApp.">
 <meta property="og:url" content="https://pedrocerqueiracavalcante.github.io/">
+<meta property="og:image" content="https://pedrocerqueiracavalcante.github.io/assets/img/easyclean.jpg">
 <meta property="og:locale" content="pt_PT">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pedrocerqueiracavalcante.github.io/assets/img/easyclean.jpg">
 <meta name="theme-color" content="#8C1D2F">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%238C1D2F'/><text x='50' y='71' font-size='58' font-family='Georgia,serif' font-weight='700' fill='%23F4F2ED' text-anchor='middle'>P</text></svg>">
@@ -22,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/styles.css?v=1">
+<link rel="stylesheet" href="assets/css/styles.css?v=2">
 
 <script type="application/ld+json">
 {
@@ -35,7 +37,7 @@
     "https://github.com/Pedrocerqueiracavalcante",
     "https://www.linkedin.com/in/pedrocerq/"
   ],
-  "knowsAbout": ["Next.js","TypeScript","Cloudflare Workers","Cloudflare D1","Tailwind CSS","JavaScript","HTML5","CSS3","SQL"]
+  "knowsAbout": ["Next.js","TypeScript","React","Cloudflare Workers","Cloudflare D1","Tailwind CSS","JavaScript","HTML5","CSS3","SQL","Stripe","PWA","SEO"]
 }
 </script>
 </head>
@@ -49,9 +51,9 @@
     <span class="brand-name">Pedro Cerqueira</span>
   </a>
   <nav class="topnav" aria-label="Principal">
-    <a href="#servicos">Serviços</a>
     <a href="#projetos">Projetos</a>
-    <a href="#processo">Processo</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#porque">Porquê eu</a>
     <a href="#contacto" class="nav-cta">Contacto</a>
   </nav>
   <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro">
@@ -63,55 +65,61 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero">
-    <p class="eyebrow">Desenvolvedor web &middot; Portugal &amp; Luxemburgo</p>
-    <h1>Sites e sistemas que os negócios <em>usam todos os dias</em>.</h1>
+    <p class="availability">
+      <span class="dot" aria-hidden="true"></span>
+      Disponível para projetos freelance e para uma posição fixa
+    </p>
+
+    <h1>Três produtos em produção. <em>Pode abri-los agora.</em></h1>
+
     <p class="lede">
-      Não entrego só um layout bonito. Entrego o produto a funcionar: página que capta,
-      área de cliente que regista pedidos, painel onde a equipa trabalha, pagamentos que
-      cobram e domínio no ar.
+      Sou desenvolvedor web e construo do primeiro rascunho ao domínio no ar:
+      a página que capta o cliente, a área onde ele acompanha o pedido, o painel
+      onde a sua equipa trabalha, o pagamento que cobra e o servidor que aguenta.
     </p>
 
     <div class="hero-actions">
       <a class="btn btn-primary" href="#contacto">Falar sobre o seu projeto</a>
-      <a class="btn btn-ghost" href="#projetos">Ver o que já construí</a>
+      <a class="btn btn-ghost" href="#projetos">Ver os projetos</a>
     </div>
 
     <dl class="stats" aria-label="Resumo de trabalho">
       <div class="stat"><dt>Produtos construídos</dt><dd>4</dd></div>
-      <div class="stat"><dt>No ar agora</dt><dd>3</dd></div>
+      <div class="stat"><dt>Em produção</dt><dd>3</dd></div>
       <div class="stat"><dt>Commits meus</dt><dd>222</dd></div>
       <div class="stat"><dt>Idiomas entregues</dt><dd>5</dd></div>
     </dl>
   </section>
 
-  <!-- ================= SERVIÇOS ================= -->
-  <section id="servicos" class="section">
-    <div class="section-head">
-      <p class="kicker">O que faço</p>
-      <h2>Quatro coisas, feitas até ao fim</h2>
-    </div>
-
-    <div class="cards">
-      <article class="card">
-        <h3>Site e landing page</h3>
-        <p>Página rápida, responsiva e pensada para converter — com o texto, as fotos e o
-        botão certo no sítio certo. Otimizada para aparecer no Google.</p>
-      </article>
-      <article class="card">
-        <h3>Área de cliente e painel</h3>
-        <p>Login, pedidos, histórico, acompanhamento e perfil para o cliente. Do outro lado,
-        um painel onde a sua equipa vê e resolve o que entra.</p>
-      </article>
-      <article class="card">
-        <h3>Integrações que poupam tempo</h3>
-        <p>Pagamentos e subscrições com Stripe, emails automáticos, e o pedido a chegar
-        direto ao WhatsApp já escrito — sem ninguém copiar nada à mão.</p>
-      </article>
-      <article class="card">
-        <h3>Domínio, deploy e manutenção</h3>
-        <p>Trato do alojamento, do domínio, do certificado e das atualizações. Você recebe
-        um endereço a funcionar, não um ficheiro para alguém instalar.</p>
-      </article>
+  <!-- ================= PROVA ================= -->
+  <section class="proof">
+    <div class="proof-inner">
+      <div class="proof-text">
+        <p class="kicker">Verificável</p>
+        <h2>Não precisa de acreditar em mim</h2>
+        <p>Estes sites estão online neste momento, com clientes reais a usá-los.
+        Abra, clique, teste. É a única prova que interessa.</p>
+      </div>
+      <ul class="proof-links">
+        <li>
+          <a href="https://oldschoolmusic.pt" target="_blank" rel="noopener">
+            <span class="pl-name">oldschoolmusic.pt</span>
+            <span class="pl-desc">Casa de eventos musicais &middot; domínio próprio &middot; 3 idiomas</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://easyclean.cerqueirapedro275.workers.dev" target="_blank" rel="noopener">
+            <span class="pl-name">Easy Clean Luxembourg</span>
+            <span class="pl-desc">Plataforma com contas, pagamentos e admin &middot; 5 idiomas</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://pedrocerqueiracavalcante.github.io/aura-studio-site/" target="_blank" rel="noopener">
+            <span class="pl-name">Menuz Barbearias</span>
+            <span class="pl-desc">Descoberta e agendamento em barbearias</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -119,37 +127,42 @@
   <section id="projetos" class="section">
     <div class="section-head">
       <p class="kicker">Projetos</p>
-      <h2>Produtos reais, com clientes reais</h2>
-      <p class="section-note">Cada um resolve um problema concreto de um negócio. Três estão online neste momento.</p>
+      <h2>O que cada negócio precisava, e o que entreguei</h2>
+      <p class="section-note">Em cada projeto digo exatamente qual foi o meu papel. Os números de commits vêm do histórico do Git e são verificáveis.</p>
     </div>
 
     <div class="projects">
 
       <!-- Old School Music -->
       <article class="project">
-        <div class="project-media" data-art="osm" aria-hidden="true">
-          <span class="art-label">Old&nbsp;School<br>Music</span>
-        </div>
+        <a class="project-media" href="https://oldschoolmusic.pt" target="_blank" rel="noopener" aria-label="Abrir oldschoolmusic.pt numa nova janela">
+          <img src="assets/img/osm.jpg" alt="Página inicial do site Old School Music, com vídeo de fundo de um evento noturno e cartão do próximo evento" width="880" height="550" loading="lazy" decoding="async">
+        </a>
         <div class="project-body">
           <div class="project-top">
-            <span class="badge badge-live">No ar</span>
-            <span class="meta">98 commits &middot; mai–ago 2026</span>
+            <span class="badge badge-live">Em produção</span>
+            <span class="meta">98 de 110 commits &middot; mai–ago 2026</span>
           </div>
           <h3>Old School Music</h3>
           <p class="project-role">Site de uma casa de eventos musicais, com domínio próprio.</p>
 
           <div class="pc-block">
-            <p class="pc-label">O que o negócio precisava</p>
-            <p>Uma agenda pública que se atualiza sem depender de ninguém, uma página própria
-            por evento — partilhável nas redes — e o site a funcionar em três idiomas para o
-            público estrangeiro.</p>
+            <p class="pc-label">O problema</p>
+            <p>A agenda dependia das redes sociais. Não havia página própria por evento
+            para partilhar nem para o Google indexar, e o público estrangeiro não era servido.</p>
           </div>
           <div class="pc-block">
             <p class="pc-label">O que construí</p>
-            <p>Site estático sem framework, para carregar depressa em telemóvel e dados móveis.
-            Um script gera automaticamente a página de cada evento a partir da agenda. Instalável
-            como app (PWA) com service worker, leitor de música integrado, e marcação SEO
-            estruturada com registo no Search Console, Bing e IndexNow.</p>
+            <p>Site rápido, sem framework, para carregar em dados móveis à porta do evento.
+            Um script gera a página de cada evento a partir da agenda, com dados estruturados
+            para o Google mostrar datas e local nos resultados. Instalável como app, leitor de
+            música integrado, e registo no Search Console, Bing e IndexNow.</p>
+          </div>
+          <div class="pc-block">
+            <p class="pc-label">O meu papel</p>
+            <p><strong>Desenvolvedor principal.</strong> 98 dos 110 commits do repositório,
+            em colaboração com o proprietário. Responsável pelo site, sistema de eventos,
+            versão multilingue, SEO e deploy.</p>
           </div>
 
           <ul class="chips">
@@ -165,34 +178,41 @@
 
       <!-- Easy Clean -->
       <article class="project">
-        <div class="project-media" data-art="easyclean" aria-hidden="true">
-          <span class="art-label">Easy<br>Clean</span>
-        </div>
+        <a class="project-media" href="https://easyclean.cerqueirapedro275.workers.dev" target="_blank" rel="noopener" aria-label="Abrir o site Easy Clean numa nova janela">
+          <img src="assets/img/easyclean.jpg" alt="Página inicial do Easy Clean, com o título Roupa limpa, sem perder tempo e um cartão de pedido rápido" width="880" height="550" loading="lazy" decoding="async">
+        </a>
         <div class="project-body">
           <div class="project-top">
-            <span class="badge badge-live">No ar</span>
+            <span class="badge badge-live">Em produção</span>
             <span class="meta">69 commits &middot; jun 2026</span>
           </div>
           <h3>Easy Clean Luxembourg</h3>
           <p class="project-role">Plataforma completa para uma lavandaria ao domicílio no Luxemburgo.</p>
 
           <div class="pc-block">
-            <p class="pc-label">O que o negócio precisava</p>
-            <p>Receber pedidos online em vez de por telefone, deixar o cliente acompanhar a
-            roupa, cobrar por subscrição — e falar com um país onde se vive em cinco línguas.</p>
+            <p class="pc-label">O problema</p>
+            <p>Os pedidos entravam por telefone, um a um. Não havia forma de o cliente
+            acompanhar a roupa nem de cobrar por subscrição — num país onde se atende
+            em cinco línguas.</p>
           </div>
           <div class="pc-block">
             <p class="pc-label">O que construí</p>
-            <p>Landing premium, páginas de serviço explicando o cuidado por tipo de tecido, e
-            uma área de cliente com pedidos, histórico, acompanhamento, perfil e subscrição.
-            Painel de administração para a equipa gerir tudo. Autenticação, pagamentos Stripe,
-            emails transacionais e base de dados própria — em PT, EN, FR, DE e ES.</p>
+            <p>Landing page, páginas de serviço com o cuidado explicado por tipo de tecido,
+            e área de cliente com pedidos, histórico, acompanhamento, perfil e subscrição.
+            Painel de administração para a equipa gerir tudo. Autenticação, pagamentos e
+            subscrições Stripe, emails automáticos e base de dados própria — em PT, EN, FR,
+            DE e ES.</p>
+          </div>
+          <div class="pc-block">
+            <p class="pc-label">O meu papel</p>
+            <p><strong>Único desenvolvedor.</strong> Os 69 commits do projeto são meus.
+            Do desenho do ecrã ao esquema da base de dados, à ligação do Stripe e ao deploy.</p>
           </div>
 
           <ul class="chips">
-            <li>Next.js 15</li><li>TypeScript</li><li>Tailwind v4</li><li>Cloudflare Workers</li>
-            <li>Cloudflare D1</li><li>Drizzle ORM</li><li>Better Auth</li><li>Stripe</li>
-            <li>Resend</li><li>5 idiomas</li>
+            <li>Next.js 15</li><li>TypeScript</li><li>React</li><li>Tailwind v4</li>
+            <li>Cloudflare Workers</li><li>Cloudflare D1</li><li>Drizzle ORM</li>
+            <li>Better Auth</li><li>Stripe</li><li>Resend</li><li>5 idiomas</li>
           </ul>
 
           <div class="project-links">
@@ -202,36 +222,42 @@
         </div>
       </article>
 
-      <!-- Barbearia Menuz -->
+      <!-- Menuz -->
       <article class="project">
-        <div class="project-media" data-art="menuz" aria-hidden="true">
-          <span class="art-label">Barbearia<br>Menuz</span>
-        </div>
+        <a class="project-media" href="https://pedrocerqueiracavalcante.github.io/aura-studio-site/" target="_blank" rel="noopener" aria-label="Abrir o site Menuz Barbearias numa nova janela">
+          <img src="assets/img/menuz.jpg" alt="Página inicial da Menuz, com pesquisa de barbearias, indicadores e promoção em destaque" width="880" height="550" loading="lazy" decoding="async">
+        </a>
         <div class="project-body">
           <div class="project-top">
-            <span class="badge badge-live">No ar</span>
+            <span class="badge badge-live">Em produção</span>
             <span class="meta">49 commits &middot; jul 2026</span>
           </div>
-          <h3>Barbearia Menuz</h3>
-          <p class="project-role">Modelo de site premium para o nicho de beleza, pensado para revenda.</p>
+          <h3>Menuz Barbearias</h3>
+          <p class="project-role">Plataforma de descoberta e agendamento para o nicho de beleza.</p>
 
           <div class="pc-block">
-            <p class="pc-label">O que o negócio precisava</p>
-            <p>Um site que uma barbearia pudesse pôr no ar rapidamente, com marca própria, e
-            onde o cliente escolhesse o corte antes sequer de escrever a primeira mensagem.</p>
+            <p class="pc-label">O problema</p>
+            <p>Uma barbearia precisa de estar online depressa, com marca própria, e o cliente
+            precisa de escolher o corte antes de escrever a primeira mensagem — senão a
+            conversa começa com "quanto custa?" e morre aí.</p>
           </div>
           <div class="pc-block">
             <p class="pc-label">O que construí</p>
-            <p>Catálogo de cortes com grelha filtrável e carrossel em destaque: ao selecionar
-            um corte, o formulário de contacto e o link do WhatsApp ficam preenchidos com o nome
-            dele. Secção de empresas próximas com geolocalização e mini-mapa. Toda a identidade
-            visual troca-se em variáveis CSS, por isso o mesmo modelo serve outro cliente em
-            minutos.</p>
+            <p>Pesquisa de estabelecimentos, avaliações, promoções em destaque e catálogo de
+            cortes com grelha filtrável: ao selecionar um corte, o formulário e o link do
+            WhatsApp ficam preenchidos com o nome dele. Secção de barbearias próximas com
+            geolocalização e mini-mapa. A identidade visual troca-se em variáveis CSS, por
+            isso o mesmo produto serve outro cliente em minutos.</p>
+          </div>
+          <div class="pc-block">
+            <p class="pc-label">O meu papel</p>
+            <p><strong>Único desenvolvedor.</strong> Os 49 commits são meus — conceito,
+            interface, geolocalização, integração com WhatsApp e publicação.</p>
           </div>
 
           <ul class="chips">
             <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>GitHub Pages</li>
-            <li>Geolocalização</li><li>WhatsApp API</li><li>Design system em CSS</li>
+            <li>Geolocalização</li><li>WhatsApp</li><li>Design system em CSS</li>
           </ul>
 
           <div class="project-links">
@@ -243,7 +269,7 @@
 
       <!-- Moreno Home -->
       <article class="project">
-        <div class="project-media" data-art="moreno" aria-hidden="true">
+        <div class="project-media project-media--art" data-art="moreno" aria-hidden="true">
           <span class="art-label">Moreno<br>Home</span>
         </div>
         <div class="project-body">
@@ -255,17 +281,21 @@
           <p class="project-role">App de apartamento para alojamento local.</p>
 
           <div class="pc-block">
-            <p class="pc-label">O que o negócio precisava</p>
-            <p>Que o hóspede pedisse limpeza, compras ou manutenção sem instalar nada, sem
-            aprender menus e sem ter de dizer em que quarto está.</p>
+            <p class="pc-label">O problema</p>
+            <p>O hóspede precisa de pedir limpeza, compras ou manutenção sem instalar nada,
+            sem aprender menus e sem ter de dizer em que quarto está.</p>
           </div>
           <div class="pc-block">
             <p class="pc-label">O que construí</p>
             <p>Web app mobile-first que abre por QR Code — e o QR já traz o quarto consigo.
             Sete cartões grandes, uma frase, confirmar. O pedido fica <em>registado na base de
-            dados</em> e só depois o WhatsApp abre: assim nenhum pedido desaparece por ninguém
+            dados</em> e só depois o WhatsApp abre: assim nenhum pedido se perde por ninguém
             ter lido a mensagem. A equipa tem painel de pedidos, histórico, quartos com QR e
             informações do alojamento.</p>
+          </div>
+          <div class="pc-block">
+            <p class="pc-label">O meu papel</p>
+            <p><strong>Único desenvolvedor.</strong> Arquitetura, interface, base de dados e API.</p>
           </div>
 
           <ul class="chips">
@@ -282,12 +312,74 @@
     </div>
   </section>
 
+  <!-- ================= PORQUÊ EU ================= -->
+  <section id="porque" class="section">
+    <div class="section-head">
+      <p class="kicker">Porquê trabalhar comigo</p>
+      <h2>Uma pessoa, o projeto inteiro</h2>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <h3>Faço tudo de ponta a ponta</h3>
+        <p>Desenho, frontend, backend, base de dados, pagamentos, deploy e domínio.
+        Não precisa de contratar três pessoas nem de gerir quem fala com quem.</p>
+      </article>
+      <article class="card">
+        <h3>Entrego endereços, não ficheiros</h3>
+        <p>O projeto acaba com o site no ar, no seu domínio, com certificado e a funcionar
+        no telemóvel. Não acaba com uma pasta para alguém instalar.</p>
+      </article>
+      <article class="card">
+        <h3>Código seu, sem mensalidades</h3>
+        <p>Nada de construtores de sites que cobram para sempre e prendem o conteúdo.
+        O código fica seu, no seu repositório, e pode ser continuado por quem quiser.</p>
+      </article>
+      <article class="card">
+        <h3>Preparado para vários mercados</h3>
+        <p>Já entreguei em cinco idiomas, com SEO e dados estruturados. Se o seu cliente
+        fala outra língua, o site fala também.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= SERVIÇOS ================= -->
+  <section id="servicos" class="section">
+    <div class="section-head">
+      <p class="kicker">O que faço</p>
+      <h2>Quatro coisas, feitas até ao fim</h2>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <h3>Site e landing page</h3>
+        <p>Página rápida, responsiva e pensada para converter — com o texto, as fotos e o
+        botão certo no sítio certo. Preparada para aparecer no Google.</p>
+      </article>
+      <article class="card">
+        <h3>Área de cliente e painel</h3>
+        <p>Login, pedidos, histórico, acompanhamento e perfil para o cliente. Do outro lado,
+        um painel onde a sua equipa vê e resolve o que entra.</p>
+      </article>
+      <article class="card">
+        <h3>Integrações que poupam tempo</h3>
+        <p>Pagamentos e subscrições com Stripe, emails automáticos, e o pedido a chegar
+        ao WhatsApp já escrito — sem ninguém copiar nada à mão.</p>
+      </article>
+      <article class="card">
+        <h3>Domínio, deploy e manutenção</h3>
+        <p>Trato do alojamento, do domínio, do certificado e das atualizações. Recebe um
+        endereço a funcionar e continua a ter quem o mantenha.</p>
+      </article>
+    </div>
+  </section>
+
   <!-- ================= PROCESSO ================= -->
   <section id="processo" class="section">
     <div class="section-head">
       <p class="kicker">Como trabalho</p>
       <h2>Do primeiro rascunho ao domínio no ar</h2>
-      <p class="section-note">São sete etapas reais, na ordem em que acontecem. Você vê o resultado em cada uma.</p>
+      <p class="section-note">Sete etapas, na ordem em que acontecem. Vê o resultado em cada uma — não fica meses sem notícias.</p>
     </div>
 
     <ol class="steps">
@@ -305,7 +397,8 @@
   <section class="section">
     <div class="section-head">
       <p class="kicker">Ferramentas</p>
-      <h2>O que uso, e onde já usei a sério</h2>
+      <h2>O que uso — e onde já usei a sério</h2>
+      <p class="section-note">Nada nesta lista está aqui por ter lido sobre isso. Está tudo em pelo menos um dos projetos acima.</p>
     </div>
 
     <div class="stack">
@@ -328,16 +421,17 @@
   <section id="contacto" class="section contact">
     <div class="contact-inner">
       <p class="kicker">Contacto</p>
-      <h2>Tem um negócio e precisa de o pôr online?</h2>
+      <h2>Diga-me o que o seu negócio precisa</h2>
       <p class="lede">
-        Diga-me o que faz e o que quer que o site resolva. Respondo com uma proposta
-        concreta: o que dá para fazer, em quanto tempo e por quanto.
+        Escreva-me o que faz e o que quer que o site resolva. Respondo com uma proposta
+        concreta: o que dá para fazer, em quanto tempo e por quanto. Sem compromisso.
       </p>
       <div class="contact-actions">
-        <a class="btn btn-primary" href="https://www.linkedin.com/in/pedrocerq/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn btn-ghost" href="mailto:cerqueirapedro275@gmail.com">Enviar email</a>
+        <a class="btn btn-primary" href="mailto:cerqueirapedro275@gmail.com?subject=Projeto%20de%20site">Enviar email</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/pedrocerq/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/Pedrocerqueiracavalcante" target="_blank" rel="noopener">GitHub</a>
       </div>
+      <p class="contact-note">Disponível para projetos freelance e para uma posição fixa. Portugal e Luxemburgo, ou remoto.</p>
     </div>
   </section>
 
@@ -345,9 +439,9 @@
 
 <footer class="footer">
   <p>Pedro Cerqueira Cavalcante &middot; Desenvolvedor web</p>
-  <p class="footer-meta">Construído à mão em HTML, CSS e JavaScript. Publicado no GitHub Pages.</p>
+  <p class="footer-meta">Construído à mão em HTML, CSS e JavaScript, sem framework. Publicado no GitHub Pages.</p>
 </footer>
 
-<script src="assets/js/main.js?v=1" defer></script>
+<script src="assets/js/main.js?v=2" defer></script>
 </body>
 </html>
