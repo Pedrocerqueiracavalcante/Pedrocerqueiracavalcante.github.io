@@ -411,7 +411,12 @@ p { margin: 0; }
 .p-nav a { font-size: .9rem; text-decoration: none; color: var(--text-2); }
 .p-nav a:hover { color: var(--accent); }
 
-/* ---------- revelação discreta ---------- */
-.reveal { opacity: 0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease; }
-.reveal.shown { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+/* ---------- revelação discreta ----------
+   Só esconde quando há JavaScript a correr para voltar a mostrar.
+   Sem a classe .js no <html>, o conteúdo fica simplesmente visível — nunca
+   deve haver forma de a página aparecer em branco por causa de uma animação. */
+.js .reveal { opacity: 0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease; }
+.js .reveal.shown { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; }
+}

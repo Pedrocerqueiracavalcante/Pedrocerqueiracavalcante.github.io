@@ -98,4 +98,11 @@
   }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
 
   Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
+
+  // Rede de segurança: se por alguma razão o observador não disparar,
+  // o conteúdo aparece na mesma. Nunca deixar nada invisível por causa
+  // de um efeito.
+  setTimeout(function () {
+    Array.prototype.forEach.call(targets, function (el) { el.classList.add('shown'); });
+  }, 2500);
 })();
