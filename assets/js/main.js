@@ -1,42 +1,9 @@
 /* ==========================================================================
    Pedro Cerqueira Cavalcante — portfólio
-   Três comportamentos, sem dependências: tema, menu e revelação.
+   Dois comportamentos, sem dependências: menu e revelação ao scroll.
    ========================================================================== */
 (function () {
   'use strict';
-
-  var root = document.documentElement;
-
-  /* ---------------------------------------------------------------
-     Tema claro / escuro
-     Sem escolha guardada, manda a preferência do sistema.
-     --------------------------------------------------------------- */
-  var KEY = 'pc-theme';
-
-  function readStored() {
-    try { return localStorage.getItem(KEY); } catch (e) { return null; }
-  }
-
-  var saved = readStored();
-  if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
-
-  function isDark() {
-    var attr = root.getAttribute('data-theme');
-    if (attr === 'dark') return true;
-    if (attr === 'light') return false;
-    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  }
-
-  var themeBtn = document.getElementById('theme-btn');
-  if (themeBtn) {
-    themeBtn.addEventListener('click', function () {
-      var next = isDark() ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem(KEY, next); } catch (e) { /* janela privada */ }
-      themeBtn.setAttribute('aria-label',
-        next === 'dark' ? 'Mudar para tema claro' : 'Mudar para tema escuro');
-    });
-  }
 
   /* ---------------------------------------------------------------
      Menu no telemóvel
@@ -60,7 +27,7 @@
       if (e.target.tagName === 'A') setOpen(false);
     });
 
-    // Fecha com Escape, e devolve o foco ao botão.
+    // Fecha com Escape e devolve o foco ao botão.
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.getAttribute('data-open') === 'true') {
         setOpen(false);
@@ -68,16 +35,15 @@
       }
     });
 
-    // Se a janela crescer para além do ponto de rutura, o menu deixa de fazer sentido.
+    // Acima do ponto de rutura o menu deixa de fazer sentido.
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 864 && nav.getAttribute('data-open') === 'true') setOpen(false);
+      if (window.innerWidth > 896 && nav.getAttribute('data-open') === 'true') setOpen(false);
     });
   }
 
   /* ---------------------------------------------------------------
      Revelação discreta ao entrar no ecrã.
-     Só se aplica quando há suporte e o utilizador não pediu menos movimento;
-     caso contrário o conteúdo fica simplesmente visível.
+     Sem suporte ou com movimento reduzido, mostra tudo de imediato.
      --------------------------------------------------------------- */
   var targets = document.querySelectorAll('.reveal');
   if (!targets.length) return;
@@ -99,9 +65,7 @@
 
   Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
 
-  // Rede de segurança: se por alguma razão o observador não disparar,
-  // o conteúdo aparece na mesma. Nunca deixar nada invisível por causa
-  // de um efeito.
+  // Rede de segurança: nada fica invisível por causa de um efeito.
   setTimeout(function () {
     Array.prototype.forEach.call(targets, function (el) { el.classList.add('shown'); });
   }, 2500);
