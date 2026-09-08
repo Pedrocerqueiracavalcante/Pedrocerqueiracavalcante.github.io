@@ -1,131 +1,79 @@
 /* ==========================================================================
-   Pedro Cerqueira Cavalcante — portfólio
-   Quatro comportamentos, sem dependências:
-   menu no telemóvel, estado do cabeçalho, secção ativa e revelação ao scroll.
+   Pedro Cerqueira — Minimal interactions & animations
    ========================================================================== */
-(function () {
+
+(function() {
   'use strict';
 
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------------------------------------------------------------
-     1. Menu no telemóvel
-     --------------------------------------------------------------- */
-  var burger = document.getElementById('burger');
-  var nav = document.getElementById('nav');
+  // Intersection Observer para fade-in ao scroll
+  var observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
 
-  if (burger && nav) {
-    var setOpen = function (open) {
-      nav.setAttribute('data-open', open ? 'true' : 'false');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    };
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('shown');
+        }
+      });
+    }, observerOptions);
 
-    burger.addEventListener('click', function () {
-      setOpen(nav.getAttribute('data-open') !== 'true');
-    });
-
-    // Fecha ao escolher um destino.
-    nav.addEventListener('click', function (e) {
-      if (e.target.closest('a')) setOpen(false);
-    });
-
-    // Fecha com Escape e devolve o foco ao botão.
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && nav.getAttribute('data-open') === 'true') {
-        setOpen(false);
-        burger.focus();
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      if (!reduced) {
+        el.classList.add('hidden');
       }
-    });
-
-    // Acima do ponto de rutura o menu deixa de fazer sentido.
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 992 && nav.getAttribute('data-open') === 'true') setOpen(false);
+      observer.observe(el);
     });
   }
 
-  /* ---------------------------------------------------------------
-     2. Cabeçalho ganha linha e opacidade depois do primeiro scroll
-     --------------------------------------------------------------- */
-  var header = document.getElementById('header');
+  // Suavizar scroll ao clicar em links internos
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href !== '#' && document.querySelector(href)) {
+        e.preventDefault();
+        document.querySelector(href).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
 
-  if (header) {
-    var ticking = false;
-    var syncHeader = function () {
-      header.setAttribute('data-scrolled', window.scrollY > 8 ? 'true' : 'false');
-      ticking = false;
-    };
+  // Active nav indicator ao scroll
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav a');
 
-    syncHeader();
-    window.addEventListener('scroll', function () {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(syncHeader);
+  if (navLinks.length && sections.length) {
+    window.addEventListener('scroll', function() {
+      var current = '';
+      sections.forEach(function(section) {
+        var sectionTop = section.offsetTop;
+        if (window.pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(function(link) {
+        link.removeAttribute('aria-current');
+        if (link.getAttribute('href') === '#' + current) {
+          link.setAttribute('aria-current', 'page');
+        }
+      });
     }, { passive: true });
   }
 
-  /* ---------------------------------------------------------------
-     3. Secção ativa na navegação (só na página inicial)
-     --------------------------------------------------------------- */
-  var links = nav ? nav.querySelectorAll('a[href^="#"]:not(.nav-cta)') : [];
-
-  if (links.length && 'IntersectionObserver' in window) {
-    var byId = {};
-    var watched = [];
-
-    Array.prototype.forEach.call(links, function (link) {
-      var section = document.getElementById(link.getAttribute('href').slice(1));
-      if (!section) return;
-      byId[section.id] = link;
-      watched.push(section);
-    });
-
-    var mark = function (id) {
-      Array.prototype.forEach.call(links, function (link) { link.removeAttribute('aria-current'); });
-      if (byId[id]) byId[id].setAttribute('aria-current', 'true');
-    };
-
-    var visible = {};
-    var sectionObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        visible[entry.target.id] = entry.isIntersecting;
+  // Timeout para garantir que tudo aparece se houver erro
+  if ('IntersectionObserver' in window) {
+    setTimeout(function() {
+      document.querySelectorAll('.reveal.hidden:not(.shown)').forEach(function(el) {
+        el.classList.add('shown');
       });
-
-      // A secção ativa é a primeira visível pela ordem do documento.
-      for (var i = 0; i < watched.length; i++) {
-        if (visible[watched[i].id]) { mark(watched[i].id); return; }
-      }
-    }, { rootMargin: '-30% 0px -60% 0px' });
-
-    watched.forEach(function (section) { sectionObserver.observe(section); });
+    }, 2000);
   }
 
-  /* ---------------------------------------------------------------
-     4. Revelação discreta ao entrar no ecrã.
-     Sem suporte ou com movimento reduzido, mostra tudo de imediato.
-     --------------------------------------------------------------- */
-  var targets = document.querySelectorAll('.reveal');
-  if (!targets.length) return;
-
-  var showAll = function () {
-    Array.prototype.forEach.call(targets, function (el) { el.classList.add('shown'); });
-  };
-
-  if (!('IntersectionObserver' in window) || reduced) {
-    showAll();
-    return;
-  }
-
-  var revealObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('shown');
-      revealObserver.unobserve(entry.target);
-    });
-  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
-
-  Array.prototype.forEach.call(targets, function (el) { revealObserver.observe(el); });
-
-  // Rede de segurança: nada fica invisível por causa de um efeito.
-  setTimeout(showAll, 2500);
 })();
